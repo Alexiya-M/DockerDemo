@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    build:
+      context:: ./src/app/backend
+    container_name: backend
+    environment:
+      - PORT=8000
+    ports:
+      -8000:8000
+    volumes:
+      - backend-data:/usr/src/app/logs
+  frontend:
+    build:
+      context: ./src/app/frontend
+    container_name: frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    volumes:
+      -frontend-data:/usr/src/app/public
+  
