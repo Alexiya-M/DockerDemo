@@ -5,4 +5,4 @@ while (count > 29):
   count = 0
   
 else:
-  count += 1
+  count = count + 1
